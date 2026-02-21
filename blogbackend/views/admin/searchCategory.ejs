@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+  </head>
+  <body>
+    <h2>search for : <%= query %></h2>
+    <% category.forEach(c => { %>
+      <h3><%= c.name %></h3>
+      <a href="/changeStatus/<%= c._id %>"><%= c.status ? "enabled" :"disabled" %> </a>
+      <a href="/editCategory/<%= c._id %>">edit</a>
+      <a href="/deleteCategory/<%= c._id %>">delete</a>
+      <% }) %>
+        
+  </body>
+</html>

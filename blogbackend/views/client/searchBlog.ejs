@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+  </head>
+  <body>
+    <h2>search for : <%= query %></h2>
+    <% blog.forEach(b => { %>
+      <a href="/client/viewBlog/<%= b._id %>">
+      <h3><%= b.title %></h3>
+      <h5 style="color: aqua;"><%= b.category.name %></h5>
+      </a>
+      <% }) %>
+  </body>
+</html>

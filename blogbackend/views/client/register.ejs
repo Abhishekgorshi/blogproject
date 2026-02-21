@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Register</title>
+
+  <style>
+    body {
+      background-color: #f4f6f9;
+      font-family: "Segoe UI", Tahoma, sans-serif;
+      padding: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    form {
+      width: 400px;
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    form div {
+      margin-bottom: 18px;
+    }
+
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid #ced4da;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+
+    span {
+      display: block;
+      margin-top: 6px;
+      color: red;
+      font-size: 13px;
+    }
+
+    button {
+      background-color: #198754;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 15px;
+      border-radius: 6px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    button:hover {
+      opacity: 0.9;
+    }
+  </style>
+</head>
+
+<body>
+
+  <form method="post" action="/registerClient">
+    <div>
+      <label>name:</label>
+      <input name="name" type="text">
+    </div>
+
+    <div>
+      <label>email:</label>
+      <input name="email" type="text">
+    </div>
+
+    <div>
+      <label>password:</label>
+      <input name="password" type="text">
+    </div>
+
+    <span><%= span %></span>
+
+    <button type="submit">register</button>
+    <a href="/client">login</a>
+  </form>
+
+</body>
+</html>

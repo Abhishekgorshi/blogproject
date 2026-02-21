@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>All Blogs</title>
+
+  <style>
+    body{
+      background-color: #f4f6f9;
+      font-family: "Segoe UI", Tahoma, sans-serif;
+      padding: 30px;
+    }
+
+    .blog{
+      background-color: #fff8dc; /* beige */
+      border-left: 6px solid purple;
+      border-bottom: 4px solid purple;
+      padding: 18px 20px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+
+    .blog h2{
+      margin: 0 0 8px;
+      color: #2c2c2c;
+    }
+
+    .blog p{
+      margin: 4px 0;
+      color: #444;
+      font-size: 14px;
+    }
+
+    .blog p:last-of-type{
+      font-weight: 600;
+      color: purple;
+    }
+
+    .blog a{
+      display: inline-block;
+      margin-top: 10px;
+      margin-right: 10px;
+      text-decoration: none;
+      padding: 6px 14px;
+      border-radius: 5px;
+      font-size: 13px;
+      color: #fff;
+    }
+
+    .blog a:nth-of-type(2){
+      background-color: #0d6efd; /* edit */
+    }
+
+    .blog a:last-of-type{
+      background-color: #dc3545; /* delete */
+    }
+
+    .blog a:hover{
+      opacity: 0.85;
+    }
+    .statusenabled{
+      background-color: green;
+    }
+    .statusdisabled{
+      background-color: greenyellow;
+    }
+  </style>
+</head>
+
+<body>
+  <form method="get" action="/searchBlog">
+<input type="text" name="q" placeholder="search any posts">
+<button type="submit">Search</button>
+  </form>
+  <% blog.forEach( b => { %>
+    <a href="viewBlog/<%= b._id %>">
+    <div class="blog" style="
+  background-image: url('/<%= b.image %>');
+  background-size: cover;
+  background-repeat: no-repeat;
+">
+      <h2><%= b.title %></h2>
+      <p><%= b.description %></p>
+      <p><%= b.category.name %></p>
+      <a class="status<%= b.status === 0 ? `disabled` : `enabled` %>" href="/blogStatusChange/<%= b._id %>"><%= b.status === 0 ? "disabled" :"enabled" %></a>
+      <a href="/editBlog/<%= b._id %>">edit</a>
+      <a href="/deleteBlog/<%= b._id %>">delete</a>
+    </div>
+    </a>
+  <% } ) %>
+
+</body>
+</html>

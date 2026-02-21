@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>All Categories</title>
+
+  <style>
+body{
+  background-color:#f4f6f9;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+  padding:30px;
+}
+
+ol{
+  max-width:600px;
+  margin:auto;
+  padding:0;
+}
+
+ol li{
+  list-style-position: inside;
+  background:#fff;
+  margin-bottom:12px;
+  padding:14px 16px;
+  border-radius:6px;
+  box-shadow:0 2px 8px rgba(0,0,0,0.08);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-size:15px;
+}
+
+ol li span{
+  font-weight:600;
+  color:#333;
+}
+
+/* Buttons container */
+ol li div a{
+  text-decoration:none;
+  padding:5px 12px;
+  border-radius:4px;
+  font-size:13px;
+  color:#fff;
+  margin-left:6px;
+}
+
+/* Edit button */
+ol li div a:first-child{
+  background:#0d6efd;
+}
+
+ol li div a:nth-child(2){
+  background:purple;
+}
+
+/* Delete button */
+ol li div a:last-child{
+  background:red;
+}
+
+ol li div a:hover{
+  opacity:0.85;
+}
+</style>
+
+<body>
+<form method="get" action="/client/searchCategory">
+  <input type="text" name="s" placeholder="search any category">
+  <button type="submit">search</button>
+</form>
+
+  <ol>
+    <% categories.forEach( c => { %>
+      <li>
+        <span><%= c.name %></span>
+     </li>
+    <% }) %>
+  </ol>
+
+</body>
+</html>

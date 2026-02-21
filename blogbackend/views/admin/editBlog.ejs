@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Edit Blog</title>
+
+    <style>
+      body {
+        background-color: #f4f6f9;
+        font-family: "Segoe UI", Tahoma, sans-serif;
+        padding: 30px;
+      }
+
+      form {
+        max-width: 700px;
+        margin: auto;
+        background: #ffffff;
+        padding: 25px;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      }
+
+      form div {
+        margin-bottom: 18px;
+      }
+
+      label {
+        display: block;
+        font-weight: 600;
+        margin-bottom: 6px;
+      }
+
+      input[type="text"],
+      textarea,
+      select {
+        width: 100%;
+        padding: 10px 12px;
+        border: 1px solid #ced4da;
+        border-radius: 6px;
+        font-size: 14px;
+      }
+
+      textarea {
+        resize: vertical;
+        min-height: 100px;
+      }
+
+      select {
+        background-color: #fff;
+      }
+
+      span {
+        display: block;
+        margin-top: 6px;
+        color: red;
+        font-size: 13px;
+      }
+
+      button {
+        background-color: #0d6efd;
+        color: #ffffff;
+        border: none;
+        padding: 10px 20px;
+        font-size: 15px;
+        border-radius: 6px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        opacity: 0.9;
+      }
+    </style>
+  </head>
+
+  <body>
+    <form method="post" action="/updateBlog/<%= post._id %>" enctype="multipart/form-data">
+
+      <div>
+        <label>Title:</label>
+        <input name="title" type="text" value="<%= post.title %>">
+      </div>
+
+      <div>
+        <label>Description:</label>
+        <textarea name="description"><%= post.description %></textarea>
+      </div>
+
+      <div>
+        <label>Category:</label>
+        <select name="category">
+          <option value="">SELECT CATEGORY</option>
+          <% category.forEach(c => { %>
+            <option value="<%= c.id %>"><%= c.name %></option>
+          <% }) %>
+        </select>
+        
+      <div>
+        <label>Image:</label>
+        <input name="image" type="file" value="<%= post.image %>">
+      </div>
+
+        <span><%= span %></span>
+      </div>
+
+      <button type="submit">update</button>
+
+    </form>
+  </body>
+</html>

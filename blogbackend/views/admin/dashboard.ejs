@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Dashboard</title>
+
+    <style>
+      /* ===== PAGE ===== */
+      body {
+        margin: 0;
+        padding: 20px;
+        background-color: #f4f6f9;
+        font-family: "Segoe UI", Tahoma, sans-serif;
+      }
+
+      /* ===== STATS ===== */
+      .stats h2 {
+        background: #ffffff;
+        padding: 12px 18px;
+        border-radius: 8px;
+        display: inline-block;
+        margin-right: 15px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        font-size: 18px;
+      }
+
+      /* ===== TABLE ===== */
+      table {
+        width: 100%;
+        margin-top: 20px;
+        background-color: #ffffff;
+        border-collapse: collapse;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      }
+
+      table tr th {
+        background-color: #212529;
+        color: #ffffff;
+        padding: 12px;
+        text-align: left;
+      }
+
+      table tr td {
+        padding: 10px 12px;
+        border-bottom: 1px solid #dee2e6;
+      }
+
+      table tr:hover td {
+        background-color: #f1f3f5;
+      }
+
+      /* ===== LINKS ===== */
+      a {
+        text-decoration: none;
+        padding: 5px 12px;
+        border-radius: 6px;
+        font-size: 14px;
+      }
+
+      a[href^="/editBlog"] {
+        background-color: #0d6efd;
+        color: #fff;
+      }
+
+      a[href^="/deleteBlog"] {
+        background-color: #dc3545;
+        color: #fff;
+      }
+
+      a:hover {
+        opacity: 0.85;
+      }
+
+      /* ===== RESPONSIVE ===== */
+      @media (max-width: 768px) {
+        table, thead, tbody, th, td, tr {
+          display: block;
+        }
+
+        table tr {
+          margin-bottom: 15px;
+          border-radius: 8px;
+          box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+
+        table tr th {
+          display: none;
+        }
+
+        table tr td {
+          padding: 8px 12px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <!-- STATS -->
+    <div class="stats">
+      <h2>Total blogs count: <%= totalBlog %></h2>
+      <h2>Total categories count: <%= totalCategories %></h2>
+    </div>
+
+    <!-- TABLE -->
+    <div>
+      <table>
+        <tr>
+          <th>Sr No.</th>
+          <th>Title</th>
+          <th>Category</th>
+          <th>Edit</th>
+          <th>View</th>
+          <th>Delete</th>
+        </tr>
+
+        <% lists.forEach(p => { %>
+          <tr>
+            <td><%= index++ %></td>
+            <td><%= p.title %></td>
+            <td><%= p.category ? p.category.name : "No Category" %></td>
+            <td><a href="/viewBlog/<%= p._id %>">View</a></td>
+            <td><a href="/editBlog/<%= p._id %>">Edit</a></td>
+            <td><a href="/deleteBlog/<%= p._id %>">Delete</a></td>
+          </tr>
+        <% }) %>
+
+      </table>
+    </div>
+
+  </body>
+</html>

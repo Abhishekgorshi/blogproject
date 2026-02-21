@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+  </head>
+  <body>
+    <h2>search for : <%= query %></h2>
+    <% blog.forEach(b => { %>
+      <h3><%= b.title %></h3>
+      <h5><%= b.category.name %></h5>
+      <p><%= b.description %></p>
+      <a class="status<%= b.status === 0 ? `disabled` : `enabled` %>" href="/blogStatusChange/<%= b._id %>"><%= b.status === 0 ? "disabled" :"enabled" %></a>
+      <a href="/editBlog/<%= b._id %>">edit</a>
+      <a href="/deleteBlog/<%= b._id %>">delete</a>
+      <% }) %>
+    
+  </body>
+</html>
