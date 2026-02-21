@@ -6,7 +6,7 @@ const routes = require("./routes/index");
 const path =require("path");
 const db = require("./config/db.js");
 const session = require("express-session");
-
+const cors = require("cors");
 
 db();
 server.use(session({
@@ -24,6 +24,7 @@ server.use(express.json());
 server.use(expressLayouts);
 server.set("layout", "layout/client");
 
+server.use(cors)
 server.use("/", routes);
 
 server.listen(8000, () => {

@@ -9,14 +9,13 @@ import Form from "./components/Form";
 import BlogForm from "./components/blogForm";
 import { useState, useEffect } from "react";
 import PostItem from "./components/PostItem";
-import Parent from "./components/Parent";
 
 function App () {
   const initialNumber = 4;
   const [data,setData] = useState([]);
     
     useEffect(() =>{
-      fetch('https://jsonplaceholder.typicode.com/posts')
+      fetch('http:8000/localhost:/api/client/dashboard')
     .then((response) => response.json())
     .then((json) => { console.log("fetch data :", json);
       setData(json.slice(0,3))});
@@ -33,8 +32,7 @@ function App () {
       <Route path="/form" element={<Form />} />
       <Route path="/blogForm" element={<BlogForm />} />
       <Route path="/postItem" element={<PostItem />} />
-      <Route path="/parent" element={<Parent />} />
-      <Route path="/blog/view/:id" element={<Parent />} />
+      
     </Routes>
     <Footer />
     </>

@@ -8,9 +8,9 @@ exports.dashboard = async(req,res) => {
   const categoriesCount = await categoryModel.countDocuments();
 res.status(200).json({
   blog:blog,
-  totalBlogs:blogsCount,
-  totalCategories:categoriesCount,
-  blogs:blog
+  // totalBlogs:blogsCount,
+  // totalCategories:categoriesCount,
+  
 })
   }
   catch(error){
