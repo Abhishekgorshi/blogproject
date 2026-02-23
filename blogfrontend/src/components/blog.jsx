@@ -3,8 +3,8 @@ import { AppContext } from "../context/context";
 import {Link} from 'react-router-dom';
 
 function Blog() {
-const {blogs,categories,blogCount,categoryCount} = useContext(AppContext);
-   console.log("data is"+blogCount);
+const {blogs} = useContext(AppContext);
+   
    return (
       <div className="container px-4 px-lg-5">
          <div className="row gx-4 gx-lg-5 justify-content-center">
@@ -14,7 +14,7 @@ const {blogs,categories,blogCount,categoryCount} = useContext(AppContext);
                         <div key={b._id}>
                         <p>{b.title}</p>
                         <p>{b.description}</p>
-                       <Link to={`/post/${b._id}`}> <img src={`http://localhost:8000/${b.image}`}/>
+                       <Link to={`/post/${b._id}`}> <img src={`http://localhost:8000/${b.image}`} alt="postimage"/>
                         </Link>
                         </div>
                      )

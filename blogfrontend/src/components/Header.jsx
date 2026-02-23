@@ -1,4 +1,9 @@
+import { AppContext } from "../context/context";
+import { useContext } from "react";
+
 function Header (){
+const {categoryCount,blogCount} = useContext(AppContext);
+
   return(
     <header className="masthead" style={{backgroundImage: "url(/assets/img/home-bg.jpg)"}}>
             <div class="container position-relative px-4 px-lg-5">
@@ -10,6 +15,8 @@ function Header (){
                         <div class="site-heading">
                             <h1>Clean Blog</h1>
                             <span class="subheading">A Blog Theme by Start Bootstrap</span>
+                            <h3>Total blogs: {blogCount}</h3>
+                            <h3>Total categories: {categoryCount}</h3>
                         </div>
                     </div>
                 </div>
