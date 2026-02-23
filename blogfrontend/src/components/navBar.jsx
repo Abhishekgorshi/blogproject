@@ -14,8 +14,8 @@ function Nav() {
             <ul class="navbar-nav ms-auto py-4 py-lg-0">
               <li class="nav-item"><Link to="/" class="nav-link px-lg-3 py-3 py-lg-4" href="index.html">Home</Link></li>
               <li class="nav-item"><Link to="/about" class="nav-link px-lg-3 py-3 py-lg-4" href="about.html">About</Link></li>
-              <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="post.html">Sample Post</a></li>
-              <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="contact.html">Contact</a></li>
+              <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/">Post</a></li>
+              <li class="nav-item"><Link class="nav-link px-lg-3 py-3 py-lg-4" to={"/contact"}>Contact</Link></li>
             </ul>
           </div>
         </div>

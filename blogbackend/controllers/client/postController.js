@@ -1,6 +1,5 @@
 const postModel = require("../../models/Post");
 const categoryModel = require("../../models/Category");
-const { options } = require("../../routes");
 
 exports.dashboard = async(req,res) => {
   try{

@@ -24,7 +24,7 @@ server.use(express.json());
 server.use(expressLayouts);
 server.set("layout", "layout/client");
 
-server.use(cors)
+server.use(cors());
 server.use("/", routes);
 
 server.listen(8000, () => {

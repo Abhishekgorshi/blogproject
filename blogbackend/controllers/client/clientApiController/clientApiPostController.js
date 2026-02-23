@@ -3,28 +3,32 @@ const categoryModel = require("../../../models/Category");
 
 exports.dashboard = async(req,res) => {
   try{
-  const blog = await postModel.find().populate("category");
-  const blogsCount = await postModel.countDocuments();
-  const categoriesCount = await categoryModel.countDocuments();
-res.status(200).json({
-  blog:blog,
-  // totalBlogs:blogsCount,
-  // totalCategories:categoriesCount,
+  const blogs = await postModel.find().populate("category");
+  const blogCount = await postModel.countDocuments();
+  const categories = await categoryModel.find();
+  const categoryCount = await categoryModel.countDocuments();
   
+res.status(200).json({
+  success:true,
+  data:{blogs,categories,blogCount,categoryCount},
+  message:"data fetched successfully"  
 })
   }
-  catch(error){
-res.status(401).json({
+  catch(error){ console.log("error:"+error)
+  res.status(401).json({
+  success:false,
   message:"failed to load dashboard"+error
   })
 }
 }
 exports.viewBlog = async(req,res) => {
   try{
-const id = req.params._id;
+const id = req.params.pId;
 const blog = await postModel.findById(id).populate("category");
-res.status(401).json({
-  blog:blog
+res.status(201).json({
+  success:true,
+  data:blog,
+  message:"data sent successfully"
    })
   }
   catch(error){

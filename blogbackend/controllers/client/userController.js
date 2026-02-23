@@ -5,6 +5,7 @@ const crypto = require("crypto");
 exports.login = async(req,res) => {
   try{
     res.render("client/login", {span:"",layout:false});
+    console.log("this is login req")
   }
   catch(error){
     res.send("failed to load login form"+error);

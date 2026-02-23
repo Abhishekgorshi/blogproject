@@ -10,7 +10,7 @@ route.get("/api/client/logOut", userController.logOut);
 route.get("/api/client/emailVerifying/:token", userController.verifyingEmail);
 
 route.get("/api/client/dashboard", postController.dashboard);
-route.get("/api/client/viewBlog/:_id", postController.viewBlog);
+route.get("/api/client/viewBlog/:pId", postController.viewBlog);
 route.get("/api/client/allBlogs", postController.allBlogs);
 route.get("/api/client/searchBlog", postController.searchBlog);
 
