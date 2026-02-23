@@ -11,7 +11,7 @@ console.log(post)
     fetch(`http://localhost:8000/api/client/viewBlog/${pId}`)
     .then(res => res.json())
     .then(response => {
-      if(response.success == true){
+      if(response.success === true){
        setPost(response.data);
       }
     })
