@@ -8,7 +8,7 @@ const {pId} = useParams();
 const [post,setPost] = useState(null);
 console.log(post)
   useEffect(() => {
-    fetch(`http://localhost:8000/api/client/viewBlog/${pId}`)
+    fetch(`https://blogproject-pqx4.onrender.com/api/client/viewBlog/${pId}`)
     .then(res => res.json())
     .then(response => {
       if(response.success === true){
@@ -23,7 +23,7 @@ console.log("post",post)
   return(
 <>
 <Nav/>
-  {post && ( <header class="masthead" style={{ backgroundImage: `url(http://localhost:8000/${post.image})`}}>
+  {post && ( <header class="masthead" style={{ backgroundImage: `url(https://blogproject-pqx4.onrender.com/${post.image})`}}>
             <div class="container position-relative px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
