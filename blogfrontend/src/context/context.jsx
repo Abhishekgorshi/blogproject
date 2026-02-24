@@ -9,7 +9,7 @@ const ContextProvider = ({children}) => {
  const [categoryCount,setCategorycount] = useState(0);
 
  useEffect(() => {
-       fetch('http://localhost:8000/api/client/dashboard')
+       fetch('https://blogproject-pqx4.onrender.com/api/client/dashboard')
       .then(res => res.json())
       .then(response => { const output = response.data
                  if(response.success === true){
