@@ -14,7 +14,7 @@ const {blogs} = useContext(AppContext);
                         <div key={b._id}>
                         <p>{b.title}</p>
                         <p>{b.description}</p>
-                       <Link to={`/post/${b._id}`}> <img src={`http://localhost:8000/${b.image}`} alt="postimage"/>
+                       <Link to={`/post/${b._id}`}> <img src={`https://blogproject-pqx4.onrender.com/${b.image}`} alt="postimage"/>
                         </Link>
                         </div>
                      )
